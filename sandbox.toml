@@ -1,0 +1,43 @@
+# My Sandbox 策略配置文件
+# 修改后无需重新编译，重启服务即可生效
+
+# 允许执行的命令白名单
+allowed_commands = [
+    "echo",
+    "python",
+    "python3",
+    "node",
+    "cargo",
+    "ls",
+    "cat",
+    "pwd",
+    "date",
+    "whoami",
+    "touch",
+]
+
+# 最大超时秒数上限（请求中的 timeout_secs 不能超过此值）
+max_timeout_secs = 30
+
+# 允许传入子进程的环境变量 key 白名单
+allowed_env_keys = ["PATH", "HOME", "USER", "LANG", "MODE"]
+
+# 扩展能力（本地可执行脚本）
+# [extensions.echo]
+# command = "echo"
+# args = ["hello-from-extension"]
+
+# Linux/WSL2 隔离设置（需要 rootfs，通常需要 sudo）
+# [isolation]
+# enabled = true
+# rootfs = "/var/lib/my_sandbox/rootfs"
+# mount_proc = true
+# net_namespace = false
+# seccomp_strict = false
+
+[isolation]
+enabled = false
+rootfs = "/var/lib/my_sandbox/rootfs"
+mount_proc = true
+net_namespace = false
+seccomp_strict = false
